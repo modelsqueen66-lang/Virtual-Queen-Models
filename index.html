@@ -200,7 +200,7 @@
 
   <header>
     <div class="logo-container">
-       <img src="./queenmodels/logo.png" alt="LOGO">
+       <img src="queenmodels/logo.png" alt="LOGO">
     </div>
     <h1>Virtual Queen Models <i class="fa-solid fa-heart"></i></h1>
     <p id="header-sub" style="color:var(--gold); letter-spacing: 5px; font-weight: 300;">LUXURY & DIGITAL PERFORMANCE</p>
@@ -232,13 +232,13 @@
   <section id="join">
     <h2 id="form-title" class="section-title">Postulación de Modelos</h2>
     <div class="form-container">
-      <form id="applyForm">
+      <form id="applyForm" name="postulaciones-modelos" method="POST" data-netlify="true">
         <div class="form-grid">
-          <div><label class="l1">Nombre Real</label><input type="text" id="name" required></div>
-          <div><label class="l-edad">Edad</label><input type="number" id="age" min="18" required></div>
-          <div><label class="lp">¿De qué país eres?</label><input type="text" id="country" required></div>
-          <div><label class="ltg">Usuario de Telegram</label><input type="text" id="telegram" placeholder="@usuario"></div>
-          <div style="grid-column: span 2;"><label class="lw">Número de WhatsApp</label><input type="tel" id="whatsapp" required></div>
+          <div><label class="l1">Nombre Real</label><input type="text" name="Nombre" id="name" required></div>
+          <div><label class="l-edad">Edad</label><input type="number" name="Edad" id="age" min="18" required></div>
+          <div><label class="lp">¿De qué país eres?</label><input type="text" name="Pais" id="country" required></div>
+          <div><label class="ltg">Usuario de Telegram</label><input type="text" name="Telegram" id="telegram" placeholder="@usuario"></div>
+          <div style="grid-column: span 2;"><label class="lw">Número de WhatsApp</label><input type="tel" name="WhatsApp" id="whatsapp" required></div>
           <div style="grid-column: span 2; text-align: center; margin-top: 20px;">
             <button id="form-btn" type="submit" class="btn btn-luxury" style="width: 100%;">ENVIAR POSTULACIÓN</button>
           </div>
@@ -314,7 +314,6 @@
       document.getElementById('val-title').innerText = texts[lang].valT;
       document.getElementById('form-title').innerText = texts[lang].fT;
       
-      // Traducción de Pagos
       document.getElementById('pay-title').innerText = texts[lang].payT;
       document.getElementById('pay-p1-t').innerText = texts[lang].p1t;
       document.getElementById('pay-p1-p').innerText = texts[lang].p1p;
@@ -344,12 +343,11 @@
       }
     };
 
-    document.getElementById('applyForm').onsubmit = (e) => {
-      e.preventDefault();
+    // MODIFICADO PARA COMPATIBILIDAD CON NETLIFY
+    document.getElementById('applyForm').onsubmit = function() {
       alert(texts[window.currentLang || 'es'].alert);
-      e.target.reset();
+      // El formulario se enviará automáticamente a Netlify después del alert
     };
   </script>
 </body>
-
 </html>
