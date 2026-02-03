@@ -2,22 +2,19 @@
 <html lang="es">
 
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Virtual Queen Models | Luxury Pink Empire</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <style>
-
     :root {
-      --primary: #ff1493; 
+      --primary: #ff1493;
       --light-pink: #ff85c1;
       --gold: #d4af37;
-      --dark-bg: #000000; 
+      --dark-bg: #000000;
       --card-bg: #0a0a0a;
     }
 
@@ -123,8 +120,8 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
-                  url('https://www.transparenttextures.com/patterns/black-linen.png');
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+        url('https://www.transparenttextures.com/patterns/black-linen.png');
       position: relative;
     }
 
@@ -188,7 +185,7 @@
     .info-card {
       background: var(--card-bg);
       padding: 40px;
-      border: 1px solid rgba(255, 20, 147, 0.1);
+      border: 1px solid rgba(255,20,147,0.1);
       border-radius: 20px;
       transition: 0.4s;
       text-align: center;
@@ -212,7 +209,7 @@
     }
 
     .value-box {
-      background: rgba(255, 20, 147, 0.03);
+      background: rgba(255,20,147,0.03);
       border-left: 3px solid var(--primary);
       padding: 25px;
       border-radius: 0 15px 15px 0;
@@ -257,22 +254,6 @@
       border: 1px solid #222;
       border-radius: 12px;
       color: #fff;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .privacy-box {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #050505;
-      padding: 40px;
-      border-radius: 20px;
-      border-left: 5px solid var(--primary);
-    }
-
-    .privacy-box p {
-      color: #aaa;
-      margin-bottom: 15px;
-      font-size: 0.95rem;
     }
 
     footer {
@@ -286,69 +267,73 @@
       .form-grid { grid-template-columns: 1fr; }
     }
 
-    /* ✅ SOLO ESTO SE AÑADE PARA MÓVIL */
+    /* ✅ SOLO AÑADIDO PARA MÓVIL */
     @media (max-width: 480px) {
-
-      header {
-        min-height: 100vh;
-        padding: 40px 20px;
-      }
-
-      .logo-container {
-        width: 160px;
-      }
-
-      header h1 {
-        font-size: 2rem;
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      #header-sub {
-        letter-spacing: 2px;
-        font-size: 0.8rem;
-      }
-
-      section {
-        padding: 60px 20px;
-      }
-
-      .section-title {
-        font-size: 1.9rem;
-      }
-
-      .form-container {
-        padding: 25px 20px;
-      }
-
-      input {
-        font-size: 0.9rem;
-        padding: 14px;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 280px;
-      }
-
+      header { padding: 40px 20px; }
+      .logo-container { width: 160px; }
+      header h1 { font-size: 2rem; flex-direction: column; gap: 6px; }
+      section { padding: 60px 20px; }
+      .section-title { font-size: 1.9rem; }
+      .form-container { padding: 25px 20px; }
+      input { font-size: 0.9rem; padding: 14px; }
+      .btn { width: 100%; max-width: 280px; }
       .whatsapp-float {
-        width: 55px;
-        height: 55px;
-        font-size: 28px;
-        bottom: 20px;
-        right: 20px;
+        width: 55px; height: 55px; font-size: 28px;
+        bottom: 20px; right: 20px;
       }
     }
-
   </style>
 </head>
 
 <body class="modal-active">
 
-<!-- TODO TU HTML ORIGINAL SIGUE IGUAL -->
-<!-- (no se quitó ni se cambió nada) -->
+<div class="lang-switcher">
+  <button class="lang-btn active">ES</button>
+  <button class="lang-btn">EN</button>
+</div>
+
+<a href="https://wa.me/573013145057" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<div id="legalModal">
+  <div class="legal-box">
+    <h2>Acceso Privado</h2>
+    <p style="margin:20px 0;color:#ccc;">Para ingresar debes confirmar que eres mayor de edad.</p>
+    <button class="btn btn-luxury" onclick="verifyAge()">SOY MAYOR DE EDAD</button>
+  </div>
+</div>
+
+<header>
+  <div class="logo-container">
+    <img src="queenmodels/logo.png" alt="LOGO">
+  </div>
+  <h1>Virtual Queen Models <i class="fa-solid fa-heart"></i></h1>
+  <p id="header-sub" style="color:var(--gold);letter-spacing:5px;">LUXURY & DIGITAL PERFORMANCE</p>
+</header>
+
+<footer>
+  <i class="fa-solid fa-crown" style="color:var(--gold);font-size:2rem;"></i>
+  <p>VIRTUAL QUEEN MODELS © 2026</p>
+</footer>
+
+<script>
+function verifyAge(){
+  localStorage.setItem('vqm_access','true');
+  document.getElementById('legalModal').style.display='none';
+  document.body.classList.remove('modal-active');
+}
+
+window.onload=()=>{
+  if(localStorage.getItem('vqm_access')==='true'){
+    document.getElementById('legalModal').style.display='none';
+    document.body.classList.remove('modal-active');
+  }
+}
+</script>
 
 </body>
 </html>
+
 
 
