@@ -12,8 +12,8 @@
       --primary: #ff1493; 
       --light-pink: #ff85c1;
       --gold: #d4af37;
-      --dark-bg: #000000; /* FONDO NEGRO PURO */
-      --card-bg: #0a0a0a; /* TARJETAS LIGERAMENTE VISIBLES */
+      --dark-bg: #000000; 
+      --card-bg: #0a0a0a;
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -28,7 +28,6 @@
 
     body.modal-active { overflow: hidden; height: 100vh; }
 
-    /* --- ANIMACIONES --- */
     @keyframes glow-pink {
       0% { text-shadow: 0 0 10px var(--primary); }
       50% { text-shadow: 0 0 25px var(--primary), 0 0 5px var(--gold); }
@@ -213,19 +212,19 @@
   <section id="servicios">
     <h2 id="serv-title" class="section-title">Servicios Principales</h2>
     <div class="grid">
-      <div class="info-card"><i class="fa-solid fa-fingerprint"></i><h3 class="s1-t">Identidad Digital Auténtica</h3><p class="s1-p">Creamos y gestionamos perfiles que reflejan tu esencia real, asegurando una conexión genuina con tu audiencia.</p></div>
-      <div class="info-card"><i class="fa-solid fa-clock"></i><h3 class="s2-t">Control Total</h3><p class="s2-p">Tú decides cuándo y cómo trabajar. Priorizamos tu bienestar y tu tiempo personal por encima de todo.</p></div>
-      <div class="info-card"><i class="fa-solid fa-star"></i><h3 class="s3-t">Experiencias Virtuales</h3><p class="s3-p">Diseñamos contenido exclusivo y a medida para ofrecer una experiencia única que fidelice a tus seguidores.</p></div>
-      <div class="info-card"><i class="fa-solid fa-camera-retro"></i><h3 class="s4-t">Performance</h3><p class="s4-p">Potenciamos tus habilidades frente a la cámara con técnicas de expresión y presencia para destacar.</p></div>
+      <div class="info-card"><i class="fa-solid fa-fingerprint"></i><h3 id="s1-t">Identidad Digital Auténtica</h3><p id="s1-p">Creamos y gestionamos perfiles que reflejan tu esencia real, asegurando una conexión genuina con tu audiencia.</p></div>
+      <div class="info-card"><i class="fa-solid fa-clock"></i><h3 id="s2-t">Control Total</h3><p id="s2-p">Tú decides cuándo y cómo trabajar. Priorizamos tu bienestar y tu tiempo personal por encima de todo.</p></div>
+      <div class="info-card"><i class="fa-solid fa-star"></i><h3 id="s3-t">Experiencias Virtuales</h3><p id="s3-p">Diseñamos contenido exclusivo y a medida para ofrecer una experiencia única que fidelice a tus seguidores.</p></div>
+      <div class="info-card"><i class="fa-solid fa-camera-retro"></i><h3 id="s4-t">Performance</h3><p id="s4-p">Potenciamos tus habilidades frente a la cámara con técnicas de expresión y presencia para destacar.</p></div>
     </div>
   </section>
 
   <section id="valores" style="background: #000000;">
     <h2 id="val-title" class="section-title">Nuestros Valores</h2>
     <div style="max-width: 1000px; margin: 0 auto;">
-      <div class="value-box"><h4 class="v1-t"><i class="fa-solid fa-shield-check"></i> +18 Verificado</h4><p class="v1-p">Implementamos protocolos rigurosos de validación de edad para garantizar un entorno legal y seguro.</p></div>
-      <div class="value-box"><h4 class="v2-t"><i class="fa-solid fa-lock"></i> Privacidad y Seguridad</h4><p class="v2-p">Protegemos tus datos y tu anonimato con tecnología de vanguardia y acuerdos de confidencialidad estrictos.</p></div>
-      <div class="value-box"><h4 class="v3-t"><i class="fa-solid fa-handshake"></i> Respeto y Consentimiento</h4><p class="v3-p">Fomentamos una cultura donde tus decisiones son la prioridad, asegurando interacciones basadas siempre en el acuerdo mutuo.</p></div>
+      <div class="value-box"><h4 id="v1-t"><i class="fa-solid fa-shield-check"></i> +18 Verificado</h4><p id="v1-p">Implementamos protocolos rigurosos de validación de edad para garantizar un entorno legal y seguro.</p></div>
+      <div class="value-box"><h4 id="v2-t"><i class="fa-solid fa-lock"></i> Privacidad y Seguridad</h4><p id="v2-p">Protegemos tus datos y tu anonimato con tecnología de vanguardia y acuerdos de confidencialidad estrictos.</p></div>
+      <div class="value-box"><h4 id="v3-t"><i class="fa-solid fa-handshake"></i> Respeto y Consentimiento</h4><p id="v3-p">Fomentamos una cultura donde tus decisiones son la prioridad, asegurando interacciones basadas siempre en el acuerdo mutuo.</p></div>
     </div>
   </section>
 
@@ -234,13 +233,12 @@
     <div class="form-container">
       <form id="applyForm" name="postulaciones-modelos" method="POST" data-netlify="true">
         <input type="hidden" name="form-name" value="postulaciones-modelos" />
-        
         <div class="form-grid">
-          <div><label class="l1">Nombre Real</label><input type="text" name="nombre" id="name" required></div>
-          <div><label class="l-edad">Edad</label><input type="number" name="edad" id="age" min="18" required></div>
-          <div><label class="lp">¿De qué país eres?</label><input type="text" name="pais" id="country" required></div>
-          <div><label class="ltg">Usuario de Telegram</label><input type="text" name="telegram" id="telegram" placeholder="@usuario"></div>
-          <div style="grid-column: span 2;"><label class="lw">Número de WhatsApp</label><input type="tel" name="whatsapp" id="whatsapp" required></div>
+          <div><label class="l1">Nombre Real</label><input type="text" name="nombre" required></div>
+          <div><label class="le">Edad</label><input type="number" name="edad" min="18" required></div>
+          <div><label class="lp">¿De qué país eres?</label><input type="text" name="pais" required></div>
+          <div><label class="ltg">Usuario de Telegram</label><input type="text" name="telegram" placeholder="@usuario"></div>
+          <div style="grid-column: span 2;"><label class="lw">Número de WhatsApp</label><input type="tel" name="whatsapp" required></div>
           <div style="grid-column: span 2; text-align: center; margin-top: 20px;">
             <button id="form-btn" type="submit" class="btn btn-luxury" style="width: 100%;">ENVIAR POSTULACIÓN</button>
           </div>
@@ -267,10 +265,10 @@
 
   <section id="privacidad">
     <h2 id="priv-title" class="section-title">Políticas de Privacidad</h2>
-    <div class="privacy-box">
-      <p><strong>Confidencialidad:</strong> En Virtual Queen Models, tu anonimato es ley. La información suministrada es tratada con encriptación de seguridad.</p>
-      <p><strong>Protección:</strong> No compartimos tu identidad real con terceros. Tu información personal se mantiene estrictamente privada.</p>
-      <p><strong>Seguridad:</strong> Empleamos protocolos estrictos para asegurar que tu presencia digital esté protegida 24/7.</p>
+    <div class="privacy-box" id="priv-box">
+      <p id="pr1"><strong>Confidencialidad:</strong> En Virtual Queen Models, tu anonimato es ley. La información suministrada es tratada con encriptación de seguridad.</p>
+      <p id="pr2"><strong>Protección:</strong> No compartimos tu identidad real con terceros. Tu información personal se mantiene estrictamente privada.</p>
+      <p id="pr3"><strong>Seguridad:</strong> Empleamos protocolos estrictos para asegurar que tu presencia digital esté protegida 24/7.</p>
     </div>
   </section>
 
@@ -284,52 +282,86 @@
       es: {
         modalT: "Acceso Privado", modalX: "Para ingresar debes confirmar que eres mayor de edad.", modalB: "SOY MAYOR DE EDAD",
         sub: "LUXURY & DIGITAL PERFORMANCE", vip: "💎 CLIENTES VIP", join: "✨ ÚNETE AL EQUIPO",
-        servT: "Servicios Principales", valT: "Nuestros Valores", fT: "Postulación de Modelos", 
+        servT: "Servicios Principales",
+        s1t: "Identidad Digital Auténtica", s1p: "Creamos y gestionamos perfiles que reflejan tu esencia real, asegurando una conexión genuina con tu audiencia.",
+        s2t: "Control Total", s2p: "Tú decides cuándo y cómo trabajar. Priorizamos tu bienestar y tu tiempo personal por encima de todo.",
+        s3t: "Experiencias Virtuales", s3p: "Diseñamos contenido exclusivo y a medida para ofrecer una experiencia única que fidelice a tus seguidores.",
+        s4t: "Performance", s4p: "Potenciamos tus habilidades frente a la cámara con técnicas de expresión y presencia para destacar.",
+        valT: "Nuestros Valores",
+        v1t: "+18 Verificado", v1p: "Implementamos protocolos rigurosos de validación de edad para garantizar un entorno legal y seguro.",
+        v2t: "Privacidad y Seguridad", v2p: "Protegemos tus datos y tu anonimato con tecnología de vanguardia y acuerdos de confidencialidad estrictos.",
+        v3t: "Respeto y Consentimiento", v3p: "Fomentamos una cultura donde tus decisiones son la prioridad, asegurando interacciones basadas siempre en el acuerdo mutuo.",
+        fT: "Postulación de Modelos", l1: "Nombre Real", le: "Edad", lp: "¿De qué país eres?", ltg: "Usuario de Telegram", lw: "Número de WhatsApp", fB: "ENVIAR POSTULACIÓN",
         payT: "Métodos de Pago", p1t: "PayPal", p1p: "Aceptamos pagos internacionales de forma rápida y segura a través de PayPal.",
         p2t: "Cuentas Bancarias", p2p: "Transferencias directas locales e internacionales con total discreción.",
         pT: "Políticas de Privacidad",
-        l1: "Nombre Real", le: "Edad", lp: "¿De qué país eres?", ltg: "Usuario de Telegram", lw: "Número de WhatsApp", fB: "ENVIAR POSTULACIÓN",
+        pr1: "<strong>Confidencialidad:</strong> En Virtual Queen Models, tu anonimato es ley. La información suministrada es tratada con encriptación de seguridad.",
+        pr2: "<strong>Protección:</strong> No compartimos tu identidad real con terceros. Tu información personal se mantiene estrictamente privada.",
+        pr3: "<strong>Seguridad:</strong> Empleamos protocolos estrictos para asegurar que tu presencia digital esté protegida 24/7.",
         alert: "💖 ¡Postulación enviada con éxito, Reina!"
       },
       en: {
         modalT: "Private Access", modalX: "To enter you must confirm that you are of legal age.", modalB: "I AM OF LEGAL AGE",
         sub: "LUXURY & DIGITAL PERFORMANCE", vip: "💎 VIP CLIENTS", join: "✨ JOIN THE TEAM",
-        servT: "Core Services", valT: "Our Values", fT: "Model Application", 
+        servT: "Core Services",
+        s1t: "Authentic Digital Identity", s1p: "We create and manage profiles that reflect your true essence, ensuring a genuine connection with your audience.",
+        s2t: "Total Control", s2p: "You decide when and how to work. We prioritize your well-being and personal time above all else.",
+        s3t: "Virtual Experiences", s3p: "We design exclusive and custom content to offer a unique experience that builds follower loyalty.",
+        s4t: "Performance", s4p: "We boost your skills in front of the camera with expression and presence techniques to stand out.",
+        valT: "Our Values",
+        v1t: "+18 Verified", v1p: "We implement rigorous age validation protocols to guarantee a legal and safe environment.",
+        v2t: "Privacy and Security", v2p: "We protect your data and anonymity with cutting-edge technology and strict confidentiality agreements.",
+        v3t: "Respect and Consent", v3p: "We foster a culture where your decisions are the priority, ensuring interactions always based on mutual agreement.",
+        fT: "Model Application", l1: "Real Name", le: "Age", lp: "What country are you from?", ltg: "Telegram Username", lw: "WhatsApp Number", fB: "SEND APPLICATION",
         payT: "Payment Methods", p1t: "PayPal", p1p: "We accept fast and secure international payments via PayPal.",
         p2t: "Bank Accounts", p2p: "Local and international direct transfers with total discretion.",
         pT: "Privacy Policies",
-        l1: "Real Name", le: "Age", lp: "What country are you from?", ltg: "Telegram Username", lw: "WhatsApp Number", fB: "SEND APPLICATION",
+        pr1: "<strong>Confidentiality:</strong> At Virtual Queen Models, your anonymity is law. Provided information is treated with security encryption.",
+        pr2: "<strong>Protection:</strong> We do not share your real identity with third parties. Your personal information is kept strictly private.",
+        pr3: "<strong>Security:</strong> We employ strict protocols to ensure your digital presence is protected 24/7.",
         alert: "💖 Application sent successfully, Queen!"
       }
     };
 
     function switchLang(lang) {
+      window.currentLang = lang;
       document.getElementById('btn-es').classList.toggle('active', lang === 'es');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      
       document.getElementById('modal-title').innerText = texts[lang].modalT;
       document.getElementById('modal-txt').innerText = texts[lang].modalX;
       document.getElementById('modal-btn').innerText = texts[lang].modalB;
       document.getElementById('header-sub').innerText = texts[lang].sub;
       document.getElementById('btn-vip').innerText = texts[lang].vip;
       document.getElementById('btn-join').innerText = texts[lang].join;
-      document.getElementById('serv-title').innerText = texts[lang].servT;
-      document.getElementById('val-title').innerText = texts[lang].valT;
-      document.getElementById('form-title').innerText = texts[lang].fT;
       
-      document.getElementById('pay-title').innerText = texts[lang].payT;
-      document.getElementById('pay-p1-t').innerText = texts[lang].p1t;
-      document.getElementById('pay-p1-p').innerText = texts[lang].p1p;
-      document.getElementById('pay-p2-t').innerText = texts[lang].p2t;
-      document.getElementById('pay-p2-p').innerText = texts[lang].p2p;
+      document.getElementById('serv-title').innerText = texts[lang].servT;
+      document.getElementById('s1-t').innerText = texts[lang].s1t; document.getElementById('s1-p').innerText = texts[lang].s1p;
+      document.getElementById('s2-t').innerText = texts[lang].s2t; document.getElementById('s2-p').innerText = texts[lang].s2p;
+      document.getElementById('s3-t').innerText = texts[lang].s3t; document.getElementById('s3-p').innerText = texts[lang].s3p;
+      document.getElementById('s4-t').innerText = texts[lang].s4t; document.getElementById('s4-p').innerText = texts[lang].s4p;
 
-      document.getElementById('priv-title').innerText = texts[lang].pT;
+      document.getElementById('val-title').innerText = texts[lang].valT;
+      document.getElementById('v1-t').innerHTML = `<i class="fa-solid fa-shield-check"></i> ${texts[lang].v1t}`; document.getElementById('v1-p').innerText = texts[lang].v1p;
+      document.getElementById('v2-t').innerHTML = `<i class="fa-solid fa-lock"></i> ${texts[lang].v2t}`; document.getElementById('v2-p').innerText = texts[lang].v2p;
+      document.getElementById('v3-t').innerHTML = `<i class="fa-solid fa-handshake"></i> ${texts[lang].v3t}`; document.getElementById('v3-p').innerText = texts[lang].v3p;
+
+      document.getElementById('form-title').innerText = texts[lang].fT;
       document.querySelector('.l1').innerText = texts[lang].l1;
-      document.querySelector('.l-edad').innerText = texts[lang].le;
+      document.querySelector('.le').innerText = texts[lang].le;
       document.querySelector('.lp').innerText = texts[lang].lp;
       document.querySelector('.ltg').innerText = texts[lang].ltg;
       document.querySelector('.lw').innerText = texts[lang].lw;
       document.getElementById('form-btn').innerText = texts[lang].fB;
-      window.currentLang = lang;
+
+      document.getElementById('pay-title').innerText = texts[lang].payT;
+      document.getElementById('pay-p1-t').innerText = texts[lang].p1t; document.getElementById('pay-p1-p').innerText = texts[lang].p1p;
+      document.getElementById('pay-p2-t').innerText = texts[lang].p2t; document.getElementById('pay-p2-p').innerText = texts[lang].p2p;
+
+      document.getElementById('priv-title').innerText = texts[lang].pT;
+      document.getElementById('pr1').innerHTML = texts[lang].pr1;
+      document.getElementById('pr2').innerHTML = texts[lang].pr2;
+      document.getElementById('pr3').innerHTML = texts[lang].pr3;
     }
 
     function verifyAge() {
@@ -343,6 +375,7 @@
         document.getElementById('legalModal').style.display = 'none';
         document.body.classList.remove('modal-active');
       }
+      switchLang('es');
     };
 
     document.getElementById('applyForm').onsubmit = function() {
@@ -352,3 +385,4 @@
   </script>
 </body>
 </html>
+
