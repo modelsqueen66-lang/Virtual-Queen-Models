@@ -1,160 +1,775 @@
 <!DOCTYPE html>
+
 <html lang="es">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Virtual Queen Models | Luxury Pink Empire</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+
+
   <style>
+
     :root {
-      --primary: #ff1493;
+
+      --primary: #ff1493; 
+
       --light-pink: #ff85c1;
+
       --gold: #d4af37;
-      --dark-bg: #000000;
+
+      --dark-bg: #000000; 
+
       --card-bg: #0a0a0a;
+
     }
+
+
 
     * { margin:0; padding:0; box-sizing:border-box; }
+
     html { scroll-behavior: smooth; }
 
+    
+
     body {
+
       font-family: 'Poppins', sans-serif;
+
       background-color: var(--dark-bg);
+
       color: #fce4ec;
+
       line-height: 1.6;
+
     }
+
+
 
     body.modal-active { overflow: hidden; height: 100vh; }
 
+
+
     @keyframes glow-pink {
+
       0% { text-shadow: 0 0 10px var(--primary); }
+
       50% { text-shadow: 0 0 25px var(--primary), 0 0 5px var(--gold); }
+
       100% { text-shadow: 0 0 10px var(--primary); }
+
     }
 
     @keyframes pulse-heart {
+
       0% { transform: scale(1); }
+
       50% { transform: scale(1.3); }
+
       100% { transform: scale(1); }
+
     }
+
+
 
     .whatsapp-float {
+
       position: fixed;
+
       bottom: 30px;
+
       right: 30px;
+
       background: #25d366;
+
       color: #FFF;
+
       width: 65px;
+
       height: 65px;
+
       border-radius: 50%;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       font-size: 35px;
+
       z-index: 999;
+
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
+
       transition: all 0.4s ease;
+
       text-decoration: none;
+
     }
 
+    .whatsapp-float:hover {
+
+      box-shadow: 0 0 30px #25d366, 0 0 10px #fff;
+
+      transform: scale(1.1);
+
+      filter: brightness(1.2);
+
+    }
+
+
+
     .lang-switcher {
+
       position: absolute;
+
       top: 20px;
+
       right: 20px;
+
       z-index: 1000;
+
       display: flex;
+
       gap: 10px;
+
     }
 
     .lang-btn {
+
       background: transparent;
+
       border: 1px solid var(--gold);
+
       color: var(--gold);
+
       padding: 5px 12px;
+
       border-radius: 20px;
+
       cursor: pointer;
+
       font-size: 0.8rem;
+
       transition: 0.3s;
+
     }
 
-    .lang-btn.active {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
+    .lang-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+
 
     #legalModal {
+
       position: fixed;
+
       inset: 0;
+
       background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+
       z-index: 100000;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       padding: 20px;
+
     }
 
     .legal-box {
+
       background: var(--card-bg);
+
       border: 2px solid var(--gold);
+
       max-width: 550px;
+
       padding: 50px 30px;
+
       text-align: center;
+
       border-radius: 30px;
+
     }
 
+
+
     header {
+
       height: 100vh;
+
       display: flex;
+
       flex-direction: column;
+
       justify-content: center;
+
       align-items: center;
+
       text-align: center;
-      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
-      url('https://www.transparenttextures.com/patterns/black-linen.png');
+
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+
+                  url('https://www.transparenttextures.com/patterns/black-linen.png');
+
       position: relative;
+
     }
 
     .logo-container { width: 220px; margin-bottom: 20px; }
-    .logo-container img { width: 100%; }
+
+    .logo-container img { width: 100%; height: auto; }
+
+
+
+    header h1 {
+
+      font-family: 'Playfair Display', serif;
+
+      font-size: clamp(2.2rem, 8vw, 4rem);
+
+      color: #fff;
+
+      animation: glow-pink 3s infinite;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 15px;
+
+    }
+
+    header h1 i.fa-heart { color: var(--primary); animation: pulse-heart 2s infinite ease-in-out; }
+
+
+
+    .btn {
+
+      padding: 18px 40px; border-radius: 50px; font-weight: 600;
+
+      text-transform: uppercase; letter-spacing: 2px; cursor: pointer;
+
+      transition: 0.4s; text-decoration: none; display: inline-block; border: none;
+
+    }
+
+    .btn-luxury { background: linear-gradient(45deg, var(--primary), var(--light-pink)); color: #fff; }
+
+    .btn-gold { background: linear-gradient(45deg, var(--gold), #f1d592); color: #000; }
+
+
 
     section { padding: 80px 10%; }
+
+    .section-title { 
+
+      text-align: center; color: var(--gold); margin-bottom: 50px; 
+
+      font-family: 'Playfair Display', serif; font-size: 2.5rem;
+
+    }
+
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+
+    
+
+    .info-card {
+
+      background: var(--card-bg); padding: 40px; border: 1px solid rgba(255, 20, 147, 0.1);
+
+      border-radius: 20px; transition: 0.4s; text-align: center;
+
+    }
+
+    .info-card:hover { border-color: var(--primary); transform: translateY(-10px); background: #111; }
+
+    .info-card i { color: var(--gold); font-size: 2rem; margin-bottom: 20px; }
+
+    .info-card h3 { color: var(--light-pink); margin-bottom: 15px; }
+
+
+
+    .value-box {
+
+      background: rgba(255, 20, 147, 0.03); border-left: 3px solid var(--primary);
+
+      padding: 25px; border-radius: 0 15px 15px 0; margin-bottom: 20px;
+
+    }
+
+    .value-box h4 { color: var(--gold); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+
+
+
+    .form-container {
+
+      max-width: 800px; margin: 0 auto; background: var(--card-bg);
+
+      padding: 40px; border-radius: 30px; border: 1px solid var(--gold);
+
+    }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    label { color: var(--gold); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+
+    input {
+
+      width: 100%; padding: 15px; background: #000; margin-top: 8px;
+
+      border: 1px solid #222; border-radius: 12px; color: #fff; font-family: 'Poppins', sans-serif;
+
+    }
+
+
+
+    .privacy-box {
+
+      max-width: 900px; margin: 0 auto; background: #050505; padding: 40px; 
+
+      border-radius: 20px; border-left: 5px solid var(--primary);
+
+    }
+
+    .privacy-box p { color: #aaa; margin-bottom: 15px; font-size: 0.95rem; }
+
+
 
     footer { padding: 60px; text-align: center; border-top: 1px solid #111; opacity: 0.8; }
 
-    @media (max-width: 768px) {
-      .form-grid { grid-template-columns: 1fr; }
-    }
 
-    /* ✅ ÚNICO BLOQUE AGREGADO – RESPONSIVE MÓVIL */
-    @media (max-width: 480px) {
-      header { padding: 40px 20px; height: auto; min-height: 100vh; }
-      .logo-container { width: 160px; }
-      section { padding: 60px 20px; }
-      .btn { width: 100%; max-width: 300px; }
-      .whatsapp-float {
-        width: 55px;
-        height: 55px;
-        font-size: 28px;
-        bottom: 20px;
-        right: 20px;
-      }
-    }
+
+    @media (max-width: 768px) { .form-grid { grid-template-columns: 1fr; } }
+
   </style>
+
 </head>
 
 <body class="modal-active">
 
-<!-- 🔥 TODO TU HTML ORIGINAL SIGUE EXACTAMENTE IGUAL -->
-<!-- (no toqué ni una sola línea de contenido ni JS) -->
 
-<!-- … TODO EL BODY TAL COMO LO ENVIASTE … -->
+
+  <div class="lang-switcher">
+
+    <button class="lang-btn active" onclick="switchLang('es')" id="btn-es">ES</button>
+
+    <button class="lang-btn" onclick="switchLang('en')" id="btn-en">EN</button>
+
+  </div>
+
+
+
+  <a href="https://wa.me/573013145057" class="whatsapp-float" target="_blank">
+
+    <i class="fab fa-whatsapp"></i>
+
+  </a>
+
+
+
+  <div id="legalModal">
+
+    <div class="legal-box">
+
+      <h2 id="modal-title">Acceso Privado</h2>
+
+      <p id="modal-txt" style="margin: 20px 0 30px; color: #ccc;">Para ingresar a Virtual Queen Models debes confirmar que eres mayor de edad.</p>
+
+      <button id="modal-btn" class="btn btn-luxury" onclick="verifyAge()">SOY MAYOR DE EDAD</button>
+
+    </div>
+
+  </div>
+
+
+
+  <header>
+
+    <div class="logo-container">
+
+       <img src="queenmodels/logo.png" alt="LOGO">
+
+    </div>
+
+    <h1>Virtual Queen Models <i class="fa-solid fa-heart"></i></h1>
+
+    <p id="header-sub" style="color:var(--gold); letter-spacing: 5px; font-weight: 300;">LUXURY & DIGITAL PERFORMANCE</p>
+
+    <div style="margin-top: 40px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+
+        <a id="btn-vip" href="https://wa.me/573013145057" class="btn btn-gold">💎 CLIENTES VIP</a>
+
+        <a id="btn-join" href="#join" class="btn btn-luxury">✨ ÚNETE AL EQUIPO</a>
+
+    </div>
+
+  </header>
+
+
+
+  <section id="servicios">
+
+    <h2 id="serv-title" class="section-title">Servicios Principales</h2>
+
+    <div class="grid">
+
+      <div class="info-card"><i class="fa-solid fa-fingerprint"></i><h3 id="s1-t">Identidad Digital Auténtica</h3><p id="s1-p">Creamos y gestionamos perfiles que reflejan tu esencia real, asegurando una conexión genuina con tu audiencia.</p></div>
+
+      <div class="info-card"><i class="fa-solid fa-clock"></i><h3 id="s2-t">Control Total</h3><p id="s2-p">Tú decides cuándo y cómo trabajar. Priorizamos tu bienestar y tu tiempo personal por encima de todo.</p></div>
+
+      <div class="info-card"><i class="fa-solid fa-star"></i><h3 id="s3-t">Experiencias Virtuales</h3><p id="s3-p">Diseñamos contenido exclusivo y a medida para ofrecer una experiencia única que fidelice a tus seguidores.</p></div>
+
+      <div class="info-card"><i class="fa-solid fa-camera-retro"></i><h3 id="s4-t">Performance</h3><p id="s4-p">Potenciamos tus habilidades frente a la cámara con técnicas de expresión y presencia para destacar.</p></div>
+
+    </div>
+
+  </section>
+
+
+
+  <section id="valores" style="background: #000000;">
+
+    <h2 id="val-title" class="section-title">Nuestros Valores</h2>
+
+    <div style="max-width: 1000px; margin: 0 auto;">
+
+      <div class="value-box"><h4 id="v1-t"><i class="fa-solid fa-shield-check"></i> +18 Verificado</h4><p id="v1-p">Implementamos protocolos rigurosos de validación de edad para garantizar un entorno legal y seguro.</p></div>
+
+      <div class="value-box"><h4 id="v2-t"><i class="fa-solid fa-lock"></i> Privacidad y Seguridad</h4><p id="v2-p">Protegemos tus datos y tu anonimato con tecnología de vanguardia y acuerdos de confidencialidad estrictos.</p></div>
+
+      <div class="value-box"><h4 id="v3-t"><i class="fa-solid fa-handshake"></i> Respeto y Consentimiento</h4><p id="v3-p">Fomentamos una cultura donde tus decisiones son la prioridad, asegurando interacciones basadas siempre en el acuerdo mutuo.</p></div>
+
+    </div>
+
+  </section>
+
+
+
+  <section id="join">
+
+    <h2 id="form-title" class="section-title">Postulación de Modelos</h2>
+
+    <div class="form-container">
+
+      <form id="applyForm" name="postulaciones-modelos" method="POST" data-netlify="true">
+
+        <input type="hidden" name="form-name" value="postulaciones-modelos" />
+
+        <div class="form-grid">
+
+          <div><label class="l1">Nombre Real</label><input type="text" name="nombre" required></div>
+
+          <div><label class="le">Edad</label><input type="number" name="edad" min="18" required></div>
+
+          <div><label class="lp">¿De qué país eres?</label><input type="text" name="pais" required></div>
+
+          <div><label class="ltg">Usuario de Telegram</label><input type="text" name="telegram" placeholder="@usuario"></div>
+
+          <div style="grid-column: span 2;"><label class="lw">Número de WhatsApp</label><input type="tel" name="whatsapp" required></div>
+
+          <div style="grid-column: span 2; text-align: center; margin-top: 20px;">
+
+            <button id="form-btn" type="submit" class="btn btn-luxury" style="width: 100%;">ENVIAR POSTULACIÓN</button>
+
+          </div>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+
+  <section id="pagos" style="background: #000000;">
+
+    <h2 id="pay-title" class="section-title">Métodos de Pago</h2>
+
+    <div class="grid" style="max-width: 900px; margin: 0 auto;">
+
+      <div class="info-card">
+
+        <i class="fa-brands fa-paypal"></i>
+
+        <h3 id="pay-p1-t">PayPal</h3>
+
+        <p id="pay-p1-p">Aceptamos pagos internacionales de forma rápida y segura a través de PayPal.</p>
+
+      </div>
+
+      <div class="info-card">
+
+        <i class="fa-solid fa-building-columns"></i>
+
+        <h3 id="pay-p2-t">Cuentas Bancarias</h3>
+
+        <p id="pay-p2-p">Transferencias directas locales e internacionales con total discreción.</p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <section id="privacidad">
+
+    <h2 id="priv-title" class="section-title">Políticas de Privacidad</h2>
+
+    <div class="privacy-box" id="priv-box">
+
+      <p id="pr1"><strong>Confidencialidad:</strong> En Virtual Queen Models, tu anonimato es ley. La información suministrada es tratada con encriptación de seguridad.</p>
+
+      <p id="pr2"><strong>Protección:</strong> No compartimos tu identidad real con terceros. Tu información personal se mantiene estrictamente privada.</p>
+
+      <p id="pr3"><strong>Seguridad:</strong> Empleamos protocolos estrictos para asegurar que tu presencia digital esté protegida 24/7.</p>
+
+    </div>
+
+  </section>
+
+
+
+  <footer>
+
+    <i class="fa-solid fa-crown" style="color:var(--gold); font-size: 2rem; margin-bottom: 10px;"></i>
+
+    <p>VIRTUAL QUEEN MODELS © 2026</p>
+
+  </footer>
+
+
+
+  <script>
+
+    const texts = {
+
+      es: {
+
+        modalT: "Acceso Privado", modalX: "Para ingresar debes confirmar que eres mayor de edad.", modalB: "SOY MAYOR DE EDAD",
+
+        sub: "LUXURY & DIGITAL PERFORMANCE", vip: "💎 CLIENTES VIP", join: "✨ ÚNETE AL EQUIPO",
+
+        servT: "Servicios Principales",
+
+        s1t: "Identidad Digital Auténtica", s1p: "Creamos y gestionamos perfiles que reflejan tu esencia real, asegurando una conexión genuina con tu audiencia.",
+
+        s2t: "Control Total", s2p: "Tú decides cuándo y cómo trabajar. Priorizamos tu bienestar y tu tiempo personal por encima de todo.",
+
+        s3t: "Experiencias Virtuales", s3p: "Diseñamos contenido exclusivo y a medida para ofrecer una experiencia única que fidelice a tus seguidores.",
+
+        s4t: "Performance", s4p: "Potenciamos tus habilidades frente a la cámara con técnicas de expresión y presencia para destacar.",
+
+        valT: "Nuestros Valores",
+
+        v1t: "+18 Verificado", v1p: "Implementamos protocolos rigurosos de validación de edad para garantizar un entorno legal y seguro.",
+
+        v2t: "Privacidad y Seguridad", v2p: "Protegemos tus datos y tu anonimato con tecnología de vanguardia y acuerdos de confidencialidad estrictos.",
+
+        v3t: "Respeto y Consentimiento", v3p: "Fomentamos una cultura donde tus decisiones son la prioridad, asegurando interacciones basadas siempre en el acuerdo mutuo.",
+
+        fT: "Postulación de Modelos", l1: "Nombre Real", le: "Edad", lp: "¿De qué país eres?", ltg: "Usuario de Telegram", lw: "Número de WhatsApp", fB: "ENVIAR POSTULACIÓN",
+
+        payT: "Métodos de Pago", p1t: "PayPal", p1p: "Aceptamos pagos internacionales de forma rápida y segura a través de PayPal.",
+
+        p2t: "Cuentas Bancarias", p2p: "Transferencias directas locales e internacionales con total discreción.",
+
+        pT: "Políticas de Privacidad",
+
+        pr1: "<strong>Confidencialidad:</strong> En Virtual Queen Models, tu anonimato es ley. La información suministrada es tratada con encriptación de seguridad.",
+
+        pr2: "<strong>Protección:</strong> No compartimos tu identidad real con terceros. Tu información personal se mantiene estrictamente privada.",
+
+        pr3: "<strong>Seguridad:</strong> Empleamos protocolos estrictos para asegurar que tu presencia digital esté protegida 24/7.",
+
+        alert: "💖 ¡Postulación enviada con éxito, Reina!"
+
+      },
+
+      en: {
+
+        modalT: "Private Access", modalX: "To enter you must confirm that you are of legal age.", modalB: "I AM OF LEGAL AGE",
+
+        sub: "LUXURY & DIGITAL PERFORMANCE", vip: "💎 VIP CLIENTS", join: "✨ JOIN THE TEAM",
+
+        servT: "Core Services",
+
+        s1t: "Authentic Digital Identity", s1p: "We create and manage profiles that reflect your true essence, ensuring a genuine connection with your audience.",
+
+        s2t: "Total Control", s2p: "You decide when and how to work. We prioritize your well-being and personal time above all else.",
+
+        s3t: "Virtual Experiences", s3p: "We design exclusive and custom content to offer a unique experience that builds follower loyalty.",
+
+        s4t: "Performance", s4p: "We boost your skills in front of the camera with expression and presence techniques to stand out.",
+
+        valT: "Our Values",
+
+        v1t: "+18 Verified", v1p: "We implement rigorous age validation protocols to guarantee a legal and safe environment.",
+
+        v2t: "Privacy and Security", v2p: "We protect your data and anonymity with cutting-edge technology and strict confidentiality agreements.",
+
+        v3t: "Respect and Consent", v3p: "We foster a culture where your decisions are the priority, ensuring interactions always based on mutual agreement.",
+
+        fT: "Model Application", l1: "Real Name", le: "Age", lp: "What country are you from?", ltg: "Telegram Username", lw: "WhatsApp Number", fB: "SEND APPLICATION",
+
+        payT: "Payment Methods", p1t: "PayPal", p1p: "We accept fast and secure international payments via PayPal.",
+
+        p2t: "Bank Accounts", p2p: "Local and international direct transfers with total discretion.",
+
+        pT: "Privacy Policies",
+
+        pr1: "<strong>Confidentiality:</strong> At Virtual Queen Models, your anonymity is law. Provided information is treated with security encryption.",
+
+        pr2: "<strong>Protection:</strong> We do not share your real identity with third parties. Your personal information is kept strictly private.",
+
+        pr3: "<strong>Security:</strong> We employ strict protocols to ensure your digital presence is protected 24/7.",
+
+        alert: "💖 Application sent successfully, Queen!"
+
+      }
+
+    };
+
+
+
+    function switchLang(lang) {
+
+      window.currentLang = lang;
+
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+      
+
+      document.getElementById('modal-title').innerText = texts[lang].modalT;
+
+      document.getElementById('modal-txt').innerText = texts[lang].modalX;
+
+      document.getElementById('modal-btn').innerText = texts[lang].modalB;
+
+      document.getElementById('header-sub').innerText = texts[lang].sub;
+
+      document.getElementById('btn-vip').innerText = texts[lang].vip;
+
+      document.getElementById('btn-join').innerText = texts[lang].join;
+
+      
+
+      document.getElementById('serv-title').innerText = texts[lang].servT;
+
+      document.getElementById('s1-t').innerText = texts[lang].s1t; document.getElementById('s1-p').innerText = texts[lang].s1p;
+
+      document.getElementById('s2-t').innerText = texts[lang].s2t; document.getElementById('s2-p').innerText = texts[lang].s2p;
+
+      document.getElementById('s3-t').innerText = texts[lang].s3t; document.getElementById('s3-p').innerText = texts[lang].s3p;
+
+      document.getElementById('s4-t').innerText = texts[lang].s4t; document.getElementById('s4-p').innerText = texts[lang].s4p;
+
+
+
+      document.getElementById('val-title').innerText = texts[lang].valT;
+
+      document.getElementById('v1-t').innerHTML = `<i class="fa-solid fa-shield-check"></i> ${texts[lang].v1t}`; document.getElementById('v1-p').innerText = texts[lang].v1p;
+
+      document.getElementById('v2-t').innerHTML = `<i class="fa-solid fa-lock"></i> ${texts[lang].v2t}`; document.getElementById('v2-p').innerText = texts[lang].v2p;
+
+      document.getElementById('v3-t').innerHTML = `<i class="fa-solid fa-handshake"></i> ${texts[lang].v3t}`; document.getElementById('v3-p').innerText = texts[lang].v3p;
+
+
+
+      document.getElementById('form-title').innerText = texts[lang].fT;
+
+      document.querySelector('.l1').innerText = texts[lang].l1;
+
+      document.querySelector('.le').innerText = texts[lang].le;
+
+      document.querySelector('.lp').innerText = texts[lang].lp;
+
+      document.querySelector('.ltg').innerText = texts[lang].ltg;
+
+      document.querySelector('.lw').innerText = texts[lang].lw;
+
+      document.getElementById('form-btn').innerText = texts[lang].fB;
+
+
+
+      document.getElementById('pay-title').innerText = texts[lang].payT;
+
+      document.getElementById('pay-p1-t').innerText = texts[lang].p1t; document.getElementById('pay-p1-p').innerText = texts[lang].p1p;
+
+      document.getElementById('pay-p2-t').innerText = texts[lang].p2t; document.getElementById('pay-p2-p').innerText = texts[lang].p2p;
+
+
+
+      document.getElementById('priv-title').innerText = texts[lang].pT;
+
+      document.getElementById('pr1').innerHTML = texts[lang].pr1;
+
+      document.getElementById('pr2').innerHTML = texts[lang].pr2;
+
+      document.getElementById('pr3').innerHTML = texts[lang].pr3;
+
+    }
+
+
+
+    function verifyAge() {
+
+      localStorage.setItem('vqm_access', 'true');
+
+      document.getElementById('legalModal').style.display = 'none';
+
+      document.body.classList.remove('modal-active');
+
+    }
+
+
+
+    window.onload = () => {
+
+      if (localStorage.getItem('vqm_access') === 'true') {
+
+        document.getElementById('legalModal').style.display = 'none';
+
+        document.body.classList.remove('modal-active');
+
+      }
+
+      switchLang('es');
+
+    };
+
+
+
+    document.getElementById('applyForm').onsubmit = function() {
+
+      alert(texts[window.currentLang || 'es'].alert);
+
+      return true;
+
+    };
+
+  </script>
 
 </body>
+
 </html>
 
 
