@@ -7,96 +7,114 @@
     --card-bg: #0a0a0a;
   }
 
+  /* Ajustes de Caja y Reset */
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior: smooth; overflow-x: hidden; } /* Evita scroll horizontal */
+  html { scroll-behavior: smooth; overflow-x: hidden; }
   
   body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--dark-bg);
     color: #fce4ec;
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Evita que se mueva hacia los lados en móvil */
   }
 
-  /* --- AJUSTES DE RESPONSIVIDAD (MOBILE FIRST) --- */
+  /* Bloqueo de scroll cuando el modal está activo */
+  body.modal-active { overflow: hidden; height: 100vh; }
 
+  /* --- MODAL LEGAL (Ajustado para Móvil) --- */
+  #legalModal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .legal-box {
+    background: var(--card-bg);
+    border: 2px solid var(--gold);
+    width: 100%;
+    max-width: 500px;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 25px;
+  }
+
+  /* --- HEADER Y LOGO (Adaptable) --- */
   header {
     min-height: 100vh;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 40px 20px;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
                 url('https://www.transparenttextures.com/patterns/black-linen.png');
   }
-
-  .logo-container { 
-    width: 100%; 
-    max-width: 180px; /* Más pequeño en móviles */
-    margin-bottom: 20px; 
-  }
-  .logo-container img { width: 100%; height: auto; }
+  .logo-container { width: 100%; max-width: 200px; margin-bottom: 20px; }
+  .logo-container img { width: 100%; height: auto; display: block; margin: 0 auto; }
 
   header h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 10vw, 3.5rem); /* Tamaño fluido */
-    line-height: 1.2;
-    margin-bottom: 10px;
+    font-size: clamp(1.8rem, 8vw, 3.5rem); /* Se encoge en móviles */
+    color: #fff;
+    margin-bottom: 15px;
   }
 
-  section { 
-    padding: 60px 5%; /* Menos padding lateral en móviles */
+  /* --- SECCIONES Y GRILLAS (Adaptables) --- */
+  section { padding: 60px 5%; }
+  .section-title { 
+    text-align: center; color: var(--gold); margin-bottom: 40px; 
+    font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 6vw, 2.5rem);
   }
 
+  /* Grilla: 1 columna en móvil, más en tablet/pc */
   .grid { 
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     gap: 20px; 
   }
-
-  /* Ajuste para el formulario en móviles */
-  .form-container {
-    padding: 25px 20px;
-    border-radius: 20px;
-  }
-
+  
+  /* Formulario: 1 columna en móvil */
   .form-grid { 
     display: grid; 
-    grid-template-columns: 1fr; /* Una sola columna por defecto */
+    grid-template-columns: 1fr; 
     gap: 15px; 
   }
 
-  /* --- MEDIA QUERIES PARA PANTALLAS GRANDES --- */
   @media (min-width: 768px) {
     section { padding: 80px 10%; }
-    .form-grid { grid-template-columns: 1fr 1fr; } /* Dos columnas en desktop */
-    .logo-container { max-width: 220px; }
+    .form-grid { grid-template-columns: 1fr 1fr; }
   }
 
-  /* Ajuste para el Modal en móviles */
-  .legal-box {
-    width: 95%;
-    padding: 30px 15px;
+  /* --- BOTONES (Mejorados para dedos en móvil) --- */
+  .btn {
+    padding: 15px 30px; border-radius: 50px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 1px; cursor: pointer;
+    text-decoration: none; display: inline-block; border: none;
+    font-size: 0.9rem;
+    max-width: 100%;
   }
+  .btn-luxury { background: linear-gradient(45deg, var(--primary), var(--light-pink)); color: #fff; }
+  .btn-gold { background: linear-gradient(45deg, var(--gold), #f1d592); color: #000; }
 
-  /* Botón flotante más pequeño en móviles */
+  /* WhatsApp Flotante móvil */
   @media (max-width: 480px) {
-    .whatsapp-float {
-      width: 55px;
-      height: 55px;
-      bottom: 20px;
-      right: 20px;
-      font-size: 30px;
-    }
-    .btn {
-      width: 100%; /* Botones de ancho completo en móviles para facilitar el clic */
-      padding: 15px 20px;
-      font-size: 0.9rem;
-    }
+    .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; font-size: 30px; }
   }
 
-  /* ... (Mantener el resto de tus estilos de colores y animaciones igual) ... */
+  /* Resto de estilos estéticos */
+  .info-card { background: var(--card-bg); padding: 30px 20px; border: 1px solid rgba(255, 20, 147, 0.1); border-radius: 20px; text-align: center; }
+  .value-box { background: rgba(255, 20, 147, 0.03); border-left: 3px solid var(--primary); padding: 20px; border-radius: 0 15px 15px 0; margin-bottom: 20px; }
+  input { width: 100%; padding: 12px; background: #000; border: 1px solid #222; border-radius: 10px; color: #fff; margin-top: 5px; }
+  .lang-switcher { position: absolute; top: 15px; right: 15px; z-index: 1000; display: flex; gap: 8px; }
+  .lang-btn { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; }
+  .lang-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
 </style>
+
 
